@@ -4,7 +4,7 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=Neutrino mod Genom Kernel for Redmi 9 by rama982@telegram
+kernel.string=Shas Dream OC Kernel for Redmi 9 by @shas45558
 do.devicecheck=0
 do.modules=0
 do.systemless=1

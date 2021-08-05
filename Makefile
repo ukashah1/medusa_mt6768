@@ -678,7 +678,10 @@ else
 KBUILD_CFLAGS   += -O3
 endif
 
+# Tell compiler to tune the performance of the code for a specified
+# target processor
 ifeq ($(cc-name),clang)
+KBUILD_CFLAGS += -O3
 KBUILD_CFLAGS += -mcpu=cortex-a55 -mtune=cortex-a55
 endif
 endif
