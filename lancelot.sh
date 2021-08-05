@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Hi lancelot user just wait and watch "
+echo "Building for lancelot.."
 
 mkdir outL
 export ARCH=arm64
@@ -15,8 +15,8 @@ make -j$(nproc --all) O=outL \
                        CROSS_COMPILE=aarch64-linux-android- \
                        CROSS_COMPILE_ARM32=arm-linux-androideabi-
 bp=${PWD}/outL
-DATE=$(date "+%Y%m%d-%H%M")
-ZIPNAME="Shas-Dream-Lancelot-Q-vendor"
+DATE=$(date "+%m%d")
+ZIPNAME="MedusaLANCE"
 cd ${PWD}/AnyKernel3-master
 rm *.zip *-dtb *dtbo.img
 cp $bp/arch/arm64/boot/Image.gz-dtb .

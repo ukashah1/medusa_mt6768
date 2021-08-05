@@ -50,6 +50,21 @@
 struct rq;
 struct cpuidle_state;
 
+extern unsigned int capacity_margin_freq;
+
+static inline unsigned long task_util(struct task_struct *p)
+{
+#ifdef CONFIG_SCHED_WALT
+	if (unlikely(!walt_disabled && sysctl_sched_use_walt_task_util))
+		return p->ravg.demand_scaled;
+#endif
+	return READ_ONCE(p->se.avg.util_avg);
+}
+
+extern __read_mostly bool sched_predl;
+extern unsigned int sched_capacity_margin_up[NR_CPUS];
+extern unsigned int sched_capacity_margin_down[NR_CPUS];
+
 /* task_struct::on_rq states: */
 #define TASK_ON_RQ_QUEUED	1
 #define TASK_ON_RQ_MIGRATING	2
@@ -428,7 +443,7 @@ struct cfs_bandwidth { };
 /* CFS-related fields in a runqueue */
 struct cfs_rq {
 	struct load_weight load;
-	unsigned int nr_running, h_nr_running;
+	unsigned int nr_running, h_nr_running, idle_h_nr_running;
 
 	u64 exec_clock;
 	u64 min_vruntime;

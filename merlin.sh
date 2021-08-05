@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Hi merlin user just wait and watch "
+echo "Building for merlin.."
 mkdir outM
 export ARCH=arm64
 export SUBARCH=arm64
@@ -14,8 +14,8 @@ make -j$(nproc --all) O=outM \
                        CROSS_COMPILE=aarch64-linux-android- \
                        CROSS_COMPILE_ARM32=arm-linux-androideabi-
 bp=${PWD}/outM
-DATE=$(date "+%Y%m%d-%H%M")
-ZIPNAME="Shas-Dream-Merlin-Q-vendor"
+DATE=$(date "+%m%d")
+ZIPNAME="MedusaMERLIN"
 cd ${PWD}/AnyKernel3-master
 rm *.zip *-dtb *dtbo.img
 cp $bp/arch/arm64/boot/Image.gz-dtb .
