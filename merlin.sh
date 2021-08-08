@@ -15,7 +15,7 @@ make -j$(nproc --all) O=outM \
                        CROSS_COMPILE_ARM32=arm-linux-androideabi-
 bp=${PWD}/outM
 DATE=$(date "+%Y%m%d-%H%M")
-ZIPNAME="ShasDream-OC-r1.0-merlin"
+ZIPNAME="Medusa-merlin"
 cd ${PWD}/AnyKernel3-master
 rm *.zip *-dtb *dtbo.img
 cp $bp/arch/arm64/boot/Image.gz-dtb .

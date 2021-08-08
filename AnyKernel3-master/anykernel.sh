@@ -4,13 +4,14 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=Shas Dream OC Kernel for Redmi 9 by @shas45558
-do.devicecheck=0
+kernel.string=Medusa Kernel by ukashah1@telegram
+do.devicecheck=1
 do.modules=0
 do.systemless=1
 do.cleanup=1
 do.cleanuponabort=0
-#device.name1=lancelot
+device.name1=lancelot
+device.name2=merlin
 supported.versions=
 supported.patchlevels=
 '; } # end properties
